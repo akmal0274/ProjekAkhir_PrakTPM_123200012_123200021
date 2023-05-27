@@ -44,14 +44,14 @@ class _HomePageState extends State<HomePage> {
     "Profil",
     "Konversi Mata Uang",
     "Konversi Waktu",
-    "API"
+    "Digimon Katalog"
   ];
 
   final List<Widget> _listMenu = [
-    ProfilePage(),
+    CataloguePage(),
     KonversiUangPage(),
     KonversiWaktuPage(),
-    RekomAPI()
+    ProfilePage(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -76,26 +76,26 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.calculate_rounded),
-            label: 'Profile',
+            icon: Icon(Icons.list_outlined),
+            label: 'Digimon Katalog',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today_rounded),
+            icon: Icon(Icons.attach_money),
             label: 'Konversi Uang',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today_rounded),
+            icon: Icon(Icons.timer),
             label: 'Konversi Waktu',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today_rounded),
-            label: 'API',
+            icon: Icon(Icons.person_pin_circle),
+            label: 'Profil',
           ),
         ],
         currentIndex: _selectedNavbar,
         selectedItemColor: Color(0xFFCCFF33),
-        unselectedItemColor: Colors.white,
-        backgroundColor: Color(0xFF52B788),
+        unselectedItemColor: Color.fromARGB(255, 12, 59, 8),
+        backgroundColor: Color.fromARGB(255, 26, 37, 32),
         showUnselectedLabels: true,
         onTap: _changeSelectedNavBar,
       ),

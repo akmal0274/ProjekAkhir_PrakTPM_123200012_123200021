@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:praktpm_projekakhir/camera.dart';
 import 'package:praktpm_projekakhir/loginpage.dart';
 import 'dart:convert';
+import 'dart:io';
+import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
+import 'package:universal_html/html.dart' as html;
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -11,6 +15,8 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  late File _image;
+  final picker = ImagePicker();
   final _formKey = GlobalKey<FormState>();
   bool _showPassword = false;
   var Username = TextEditingController();
@@ -119,6 +125,16 @@ class _RegisterPageState extends State<RegisterPage> {
                 const SizedBox(
                   height: 25,
                 ),
+                MaterialButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) {
+                        return CameraPage();
+                      }),
+                    );
+                  },
+                  child: Text('Upload Foto'),
+                ),
                 const SizedBox(
                   height: 5,
                 ),
@@ -202,7 +218,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   void _onRegister() async {
     final response = await http.post(
-        Uri.parse("http://192.168.1.14/dbmobile/users/register.php"),
+        Uri.parse("http://192.168.43.49/dbmobile/users/register.php"),
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Methods": "GET,PUT,PATCH,POST,DELETE",
@@ -210,7 +226,7 @@ class _RegisterPageState extends State<RegisterPage> {
         },
         body: {
           "uname": Username.text,
-          "pass": Password.text
+          "pass": Password.text,
         });
     final data = jsonDecode(response.body);
     int value = data['value'];
