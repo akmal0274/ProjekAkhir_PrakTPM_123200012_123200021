@@ -26,26 +26,98 @@ class _KonversiUangPageState extends State<KonversiUangPage> {
   }
 
   void _hasil() {
-    if (choose1 == 'IDR' && choose2 == 'USD') {
-      setState(() {
-        temp = double.parse(_jumlah) / 14200;
-        _result = temp.toStringAsFixed(4);
-      });
-    } else if (choose1 == "USD" && choose2 == "IDR") {
-      setState(() {
-        temp = double.parse(_jumlah) * 14200;
-        _result = temp.toStringAsFixed(4);
-      });
-    } else if (choose1 == "USD" && choose2 == "USD") {
-      setState(() {
-        temp = double.parse(_jumlah);
-        _result = temp.toStringAsFixed(4);
-      });
-    } else if (choose1 == "IDR" && choose2 == "IDR") {
-      setState(() {
-        temp = double.parse(_jumlah);
-        _result = temp.toStringAsFixed(4);
-      });
+    if (choose1 == 'IDR') {
+      // dari IDR ke mata uang lain
+      if (choose2 == 'IDR') {
+        setState(() {
+          temp = double.parse(_jumlah);
+          _result = temp.toStringAsFixed(4);
+        });
+      } else if (choose2 == 'USD') {
+        setState(() {
+          temp = double.parse(_jumlah) / 14200;
+          _result = temp.toStringAsFixed(4);
+        });
+      } else if (choose2 == 'SGD') {
+        setState(() {
+          temp = double.parse(_jumlah) / 11000;
+          _result = temp.toStringAsFixed(4);
+        });
+      } else if (choose2 == 'MYR') {
+        setState(() {
+          temp = double.parse(_jumlah) / 3200;
+          _result = temp.toStringAsFixed(4);
+        });
+      }
+    } else if (choose1 == 'USD') {
+      // dari USD ke mata uang lain
+      if (choose2 == 'USD') {
+        setState(() {
+          temp = double.parse(_jumlah);
+          _result = temp.toStringAsFixed(4);
+        });
+      } else if (choose2 == 'IDR') {
+        setState(() {
+          temp = double.parse(_jumlah) * 14200;
+          _result = temp.toStringAsFixed(4);
+        });
+      } else if (choose2 == 'SGD') {
+        setState(() {
+          temp = double.parse(_jumlah) * 1.34;
+          _result = temp.toStringAsFixed(4);
+        });
+      } else if (choose2 == 'MYR') {
+        setState(() {
+          temp = double.parse(_jumlah) * 4.54;
+          _result = temp.toStringAsFixed(4);
+        });
+      }
+    } else if (choose1 == 'SGD') {
+      // dari SGD ke mata uang lain
+      if (choose2 == 'SGD') {
+        setState(() {
+          temp = double.parse(_jumlah);
+          _result = temp.toStringAsFixed(4);
+        });
+      } else if (choose2 == 'IDR') {
+        setState(() {
+          temp = double.parse(_jumlah) * 11000;
+          _result = temp.toStringAsFixed(4);
+        });
+      } else if (choose2 == 'USD') {
+        setState(() {
+          temp = double.parse(_jumlah) * 0.74;
+          _result = temp.toStringAsFixed(4);
+        });
+      } else if (choose2 == 'MYR') {
+        setState(() {
+          temp = double.parse(_jumlah) * 3.38;
+          _result = temp.toStringAsFixed(4);
+        });
+      }
+    } else if (choose1 == 'MYR') {
+      // dari MYR ke mata uang lain
+      if (choose2 == 'MYR') {
+        setState(() {
+          temp = double.parse(_jumlah);
+          _result = temp.toStringAsFixed(4);
+        });
+      } else if (choose2 == 'IDR') {
+        setState(() {
+          temp = double.parse(_jumlah) * 3200;
+          _result = temp.toStringAsFixed(4);
+        });
+      } else if (choose2 == 'USD') {
+        setState(() {
+          temp = double.parse(_jumlah) * 0.22;
+          _result = temp.toStringAsFixed(4);
+        });
+      } else if (choose2 == 'SGD') {
+        setState(() {
+          temp = double.parse(_jumlah) * 0.3;
+          _result = temp.toStringAsFixed(4);
+        });
+      }
     }
   }
 
@@ -89,7 +161,8 @@ class _KonversiUangPageState extends State<KonversiUangPage> {
               DropdownButton<String>(
                   dropdownColor: Colors.black,
                   value: choose1,
-                  items: <String>['IDR', 'USD'].map((String value) {
+                  items:
+                      <String>['IDR', 'USD', 'SGD', 'MYR'].map((String value) {
                     return DropdownMenuItem(
                         value: value,
                         child: Text(
@@ -105,7 +178,8 @@ class _KonversiUangPageState extends State<KonversiUangPage> {
               DropdownButton<String>(
                   dropdownColor: Colors.black,
                   value: choose2,
-                  items: <String>['IDR', 'USD'].map((String value) {
+                  items:
+                      <String>['IDR', 'USD', 'SGD', 'MYR'].map((String value) {
                     return DropdownMenuItem(
                         value: value,
                         child: Text(

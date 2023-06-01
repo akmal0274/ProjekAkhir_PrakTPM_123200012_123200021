@@ -17,7 +17,7 @@ class _ProfilePageState extends State<ProfilePage> {
         width: MediaQuery.of(context).size.width,
         child: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.symmetric(horizontal: 60, vertical: 60),
+            margin: EdgeInsets.symmetric(horizontal: 60, vertical: 30),
             padding: EdgeInsets.only(top: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -42,6 +42,47 @@ class _ProfilePageState extends State<ProfilePage> {
                     "Muhammad Hafizh Akmal",
                     style: TextStyle(fontSize: 15, color: Colors.white),
                     textAlign: TextAlign.center,
+                  ),
+                ),
+                Container(
+                  width: 300,
+                  margin: EdgeInsets.only(top: 30),
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  decoration: BoxDecoration(
+                      color: Color(0xFF52B788),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Text(
+                    "123200012",
+                    style: TextStyle(fontSize: 15, color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                Container(
+                  width: 300,
+                  margin: EdgeInsets.only(top: 30),
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  decoration: BoxDecoration(
+                      color: Color(0xFF52B788),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Text(
+                    "Kesan: Menantang",
+                    style: TextStyle(fontSize: 15, color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                Container(
+                  width: 300,
+                  margin: EdgeInsets.only(top: 30),
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  decoration: BoxDecoration(
+                      color: Color(0xFF52B788),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Expanded(
+                    child: Text(
+                      "Pesan: Semoga bapak sehat selalu dan bisa mengajar terus",
+                      style: TextStyle(fontSize: 15, color: Colors.white),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
               ],

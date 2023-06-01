@@ -33,8 +33,8 @@ class _KonversiWaktuPageState extends State<KonversiWaktuPage> {
   void _list(String timezone) {
     if (timezone == 'UTC') {
       _changeTimezone(const Duration(hours: 0), 'UTC');
-    } else if (timezone == 'US & Canada') {
-      _changeTimezone(const Duration(hours: -8), 'US & Canada');
+    } else if (timezone == 'London') {
+      _changeTimezone(const Duration(hours: 1), 'London');
     } else if (timezone == 'Paris/Madrid') {
       _changeTimezone(const Duration(hours: -8), 'Paris/Madrid');
     } else if (timezone == 'Indonesia/WIT') {
@@ -70,7 +70,7 @@ class _KonversiWaktuPageState extends State<KonversiWaktuPage> {
                 height: 15,
               ),
               Text(
-                DateFormat.jms()
+                DateFormat.jm()
                     .format(_selectedDateTime.toUtc().add(_timezoneOffset)),
                 style: TextStyle(
                     fontSize: 30,
@@ -85,7 +85,7 @@ class _KonversiWaktuPageState extends State<KonversiWaktuPage> {
                   value: _timezoneName,
                   items: <String>[
                     'UTC',
-                    'US & Canada',
+                    'London',
                     'Paris/Madrid',
                     'Indonesia/WIB',
                     'Indonesia/WITA',

@@ -41,10 +41,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   final List<String> _list = [
-    "Profil",
+    "Digimon Katalog",
     "Konversi Mata Uang",
     "Konversi Waktu",
-    "Digimon Katalog"
+    "Profil"
   ];
 
   final List<Widget> _listMenu = [
